@@ -13,16 +13,16 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private var cLayout: ConstraintLayout? = null
     private lateinit var tvText: TextView
 
-    private var start: Boolean = true
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         tvText = findViewById(R.id.tvText)
-        tvText.text = text
+        val subText_1: String = text.substringAfter('a')
+        val subText_2: String = subText_1.substringBefore(' ')
+        tvText.text = subText_2
 
         Thread {
-            while (start) {
+            while (counter < 5) {
                 Thread.sleep(5000)
                 runOnUiThread {
                     tvText.text = counter.toString()
@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                         cLayout = findViewById(R.id.cLayout)
                         cLayout?.setBackgroundColor(Color.BLACK)
                         tvText.setHintTextColor(Color.WHITE)
-                        start = false
                     }
                     counter++
                 }
