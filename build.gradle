@@ -18,6 +18,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        // TODO: jcenter уже не робит, просто убери, все перешли на mavencentral в основном
         jcenter() // Warning: this repository is going to shut down soon
     }
 }

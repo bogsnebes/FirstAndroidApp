@@ -33,9 +33,12 @@ android {
 }
 
 dependencies {
+    // Вынеси версии в отдельные константы в формате ext, а лучше эти константы вынеси в build.gradle проекта.
+    ext.appCompatVersion = '1.5.0'
 
+    // Убери то, что не юзаешь.
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.5.0'
+    implementation "androidx.core:core-ktx:$appCompatVersion"
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'

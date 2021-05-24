@@ -8,6 +8,7 @@
     android:background="#000000"
     tools:context=".MainActivity">
 
+<!-- Укажи content description и вынеси его в strings, он нужен для говорилки -->
     <ImageView
         android:id="@+id/Semafor"
         android:layout_width="wrap_content"
@@ -24,7 +25,6 @@
         android:layout_height="100dp"
         android:layout_marginTop="24dp"
         android:background="@android:color/transparent"
-        android:onClick="onClickStartStop"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
