@@ -3,23 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="360dp"
+    android:layout_height="640dp"
+    android:background="#000000"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvText"
-        android:layout_width="198dp"
-        android:layout_height="112dp"
-        android:text="Hello World!"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#E91E63"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/Semafor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:srcCompat="@drawable/semafor_grey" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/imageButton"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClickStartStop"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Semafor"
+        app:srcCompat="@drawable/button_start" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
