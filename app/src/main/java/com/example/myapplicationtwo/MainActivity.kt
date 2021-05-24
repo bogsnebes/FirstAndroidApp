@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         timer.schedule(object : TimerTask() {
             override fun run() {
                 runOnUiThread {
-                    // TODO:
+                    // TODO: runOnUiThread только для view, убери от сюда инкремент counter
                     semafor.setImageResource(imageArray[counter])
                     counter++
                     if (counter == 3) counter = 0
