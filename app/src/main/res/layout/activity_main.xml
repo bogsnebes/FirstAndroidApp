@@ -9,26 +9,40 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/Semafor"
+        android:id="@+id/semafor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="Traffic light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/semafor_grey" />
 
     <ImageButton
+        android:contentDescription="Button start and stop"
         android:id="@+id/imageButton"
         style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="24dp"
         android:background="@android:color/transparent"
-        android:onClick="onClickStartStop"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Semafor"
+        app:layout_constraintTop_toBottomOf="@+id/semafor"
         app:srcCompat="@drawable/button_start" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="296dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/semafor"
+        app:layout_constraintVertical_bias="0.878" />
+</androidx.constraintlayout.widget.ConstraintLayout>

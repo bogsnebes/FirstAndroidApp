@@ -1,52 +1,71 @@
 package com.example.myapplicationtwo
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
-    private lateinit var semafor: ImageView
+    private lateinit var semaforImageView: ImageView
+    private lateinit var semaforButton: ImageButton
+    private lateinit var listButton: Button
 
     private var isRun: Boolean = true
     private var counter: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        semafor = findViewById(R.id.Semafor)
-    }
+        semaforImageView = findViewById(R.id.semafor)
+        semaforButton = findViewById(R.id.imageButton)
+        listButton = findViewById(R.id.button)
 
-    fun onClickStartStop(view: View) {
-        view as ImageView
-        if (isRun) {
-            startStop()
-            view.setImageResource(R.drawable.button_stop)
-            isRun = false
-        } else {
-            view.setImageResource(R.drawable.button_start)
-            semafor.setImageResource(R.drawable.semafor_grey)
-            isRun = true
-            timer.cancel()
-            counter = 0
+        semaforButton.setOnClickListener { _ ->
+            if (semaforButton is ImageView) {
+                if (isRun) {
+                    startStop()
+                    semaforButton.setImageResource(R.drawable.button_stop)
+                } else {
+                    semaforButton.setImageResource(R.drawable.button_start)
+                    semaforImageView.setImageResource(R.drawable.semafor_grey)
+                    timer.cancel()
+                    counter = 0
+                }
+
+                isRun = !isRun
+            }
+        }
+
+        listButton.setOnClickListener { _ ->
+            val intent = Intent(this, ListTrifficLights::class.java)
+            startActivity(intent)
         }
     }
 
-    fun startStop() {
+
+    private fun startStop() {
         timer.schedule(object : TimerTask() {
             override fun run() {
                 runOnUiThread {
-                    semafor.setImageResource(imageArray[counter])
+                    semaforImageView.setImageResource(semaforColorsArray[counter])
+                    counter++
+                    if (counter == 3) counter = 0
                 }
-                counter++
-                if (counter == 3) counter = 0
             }
-        }, 0, 1000)
+        }, TIMER_DELAY, TIMER_PERIOD)
     }
 
     companion object {
         private val timer: Timer = Timer()
-        private val imageArray: IntArray =
-            intArrayOf(R.drawable.semafor_red, R.drawable.semafor_yellow, R.drawable.semafor_green)
+        private const val TIMER_DELAY: Long = 0
+        private const val TIMER_PERIOD: Long = 1000
+
+        private val semaforColorsArray: IntArray = intArrayOf(
+            R.drawable.semafor_red,
+            R.drawable.semafor_yellow,
+            R.drawable.semafor_green
+        )
     }
 }
