@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
+    //TODO: semaphore
     private lateinit var semaforImageView: ImageView
     private lateinit var semaforButton: ImageButton
     private lateinit var listButton: Button
@@ -22,7 +23,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         semaforButton = findViewById(R.id.imageButton)
         listButton = findViewById(R.id.button)
 
-        semaforButton.setOnClickListener { _ ->
+        semaforButton.setOnClickListener { //TODO: Можно убрать стрелочку) _ ->
+            // TODO: А зачем эта проверка? У тебя же и так тип известен, студия не зря подсвечивает.
             if (semaforButton is ImageView) {
                 if (isRun) {
                     startStop()
@@ -38,7 +40,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             }
         }
 
+        // TODO: Тут тоже можно убрать)
         listButton.setOnClickListener { _ ->
+            // TODO: D ListTrifficLights в companion object сделай метод createInstance
+            //  А тут сделай просто val intent = LightTrifficLights.createInstace()
             val intent = Intent(this, ListTrifficLights::class.java)
             startActivity(intent)
         }
@@ -58,6 +63,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     companion object {
+        // TODO: У двух инстансов этой активити будет одинаковый таймер? Да вроде нет, убери его в поле
         private val timer: Timer = Timer()
         private const val TIMER_DELAY: Long = 0
         private const val TIMER_PERIOD: Long = 1000

@@ -8,6 +8,7 @@
     android:background="#000000"
     tools:context=".MainActivity">
 
+   <!-- У тебя подчёркивается, ты не закрепил Image по вертикали.-->
     <ImageView
         android:id="@+id/semafor"
         android:layout_width="wrap_content"
@@ -16,8 +17,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/semafor_grey" />
 
+    <!-- Вынеси в values/strings, подчёркивает ведь студия, весь текст нужно выносить туда.-->
     <ImageButton
         android:contentDescription="Button start and stop"
         android:id="@+id/imageButton"
