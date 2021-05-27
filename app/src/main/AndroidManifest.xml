@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplicationTwo">
         <activity android:name=".TrafficLightImage"></activity>
-        <activity android:name=".ListTrifficLights" />
+        <activity android:name=".ListTrafficLights" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
