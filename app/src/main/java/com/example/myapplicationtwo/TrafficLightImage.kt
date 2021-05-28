@@ -1,5 +1,7 @@
 package com.example.myapplicationtwo
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -30,5 +32,11 @@ class TrafficLightImage : AppCompatActivity(R.layout.activity_traffic_light_imag
             R.drawable.semafor_yellow,
             R.drawable.semafor_green
         )
+
+        fun createInstance(context: Context, POSITION_TRAFFIC_NAME: String, position: Int): Intent {
+            return Intent(context, TrafficLightImage::class.java).apply {
+                this.putExtra(POSITION_TRAFFIC_NAME, position)
+            }
+        }
     }
 }

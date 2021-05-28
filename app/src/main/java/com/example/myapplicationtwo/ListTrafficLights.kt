@@ -1,5 +1,6 @@
 package com.example.myapplicationtwo
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -17,13 +18,14 @@ class ListTrafficLights : AppCompatActivity(R.layout.activity_list_triffic_light
             ArrayAdapter(this, android.R.layout.simple_list_item_1, nameList)
 
         trafficLightsListView.setOnItemClickListener { _, _, position, _ ->
-            // TODO: Текст выноси в values/strings, чтобы была возможность смены языка.
-            //  Получать такой текст просто: getString(Id)
-            Toast.makeText(this, "Сэлам Уалейкум))", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_listTrafficLights), Toast.LENGTH_SHORT)
+                .show()
             // TODO: TrafficLightImage createInstance()
-            val intentTrafficLightImage = Intent(this, TrafficLightImage::class.java).apply {
-                putExtra(POSITION_TRAFFIC_NAME, position)
-            }
+            val intentTrafficLightImage = TrafficLightImage.createInstance(
+                this,
+                POSITION_TRAFFIC_NAME = POSITION_TRAFFIC_NAME,
+                position = position
+            )
             startActivity(intentTrafficLightImage)
         }
     }
@@ -36,8 +38,8 @@ class ListTrafficLights : AppCompatActivity(R.layout.activity_list_triffic_light
             "Зеленый"
         )
 
-//        fun createInstace() {
-//            return Intent(this, ListTrafficLights::class.java)
-//        }
+        fun createInstance(context: Context): Intent {
+            return Intent(context, ListTrafficLights::class.java)
+        }
     }
 }

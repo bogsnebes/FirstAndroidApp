@@ -1,6 +1,5 @@
 package com.example.myapplicationtwo
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
@@ -37,9 +36,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         }
 
         listButton.setOnClickListener {
-            // TODO: D ListTrifficLights в companion object сделай метод createInstance
-            //  А тут сделай просто val intent = LightTrifficLights.createInstace()
-            val intent = Intent(this, ListTrafficLights::class.java)
+            val intent = ListTrafficLights.createInstance(this)
             startActivity(intent)
         }
     }
@@ -68,5 +65,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             R.drawable.semafor_yellow,
             R.drawable.semafor_green
         )
+
     }
 }
