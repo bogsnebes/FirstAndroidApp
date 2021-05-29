@@ -4,12 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.internal.ContextUtils.getActivity
+
 
 class ListTrafficLights : AppCompatActivity(R.layout.activity_list_triffic_lights) {
-    private lateinit var trafficLightsListView: ListView
+
+    private lateinit var trafficLightsListView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +36,8 @@ class ListTrafficLights : AppCompatActivity(R.layout.activity_list_triffic_light
 
     companion object {
         private const val POSITION_TRAFFIC_NAME: String = "positionTrafficLight"
+
+        val linerLayoutManager = LinearLayoutManager(activity)
         private val nameList: ArrayList<String> = arrayListOf(
             "Красный",
             "Желтый",
